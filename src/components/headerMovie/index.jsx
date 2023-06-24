@@ -27,6 +27,7 @@ const styles = {
 
 const MovieHeader = (props) => {
   const movie = props.movie;
+  console.log(movie);
   const storedFavourite = JSON.parse(localStorage.getItem('favourites'));
   for (var i = 0; i < storedFavourite.length; i+=1 ) {
     if (storedFavourite[i].id === movie.id) {
