@@ -28,12 +28,11 @@ const styles = {
 const MovieHeader = (props) => {
   const movie = props.movie;
   const storedFavourite = JSON.parse(localStorage.getItem('favourites'));
-  const foundMatch = false;
   for (var i = 0; i < storedFavourite.length; i+=1 ) {
     if (storedFavourite[i].id === movie.id) {
-      foundMatch == true;
+      var foundMatch = true;
       console.log(storedFavourite[i].id);
-    } else foundMatch == false;
+    } else foundMatch = false;
   };
 
   return (
