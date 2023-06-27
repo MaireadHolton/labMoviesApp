@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import { getUpcomingMovies } from "../api/tmdb-api";
-import { CardHeader } from "@mui/material";
 import UpcomingMovieList from '../components/upcomingMovieList'; 
 import Grid from "@mui/material/Grid";
 import Header from "../components/headerMovieList";
+
 
 const styles = {
   root: {
@@ -24,6 +24,7 @@ const UpcomingMoviesPage = (props) => {
       console.log(upcomingMovies);
     });
   }, []);
+
 
   return (
     <Grid container sx={styles.root}>
