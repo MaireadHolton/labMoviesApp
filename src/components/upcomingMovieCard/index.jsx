@@ -27,7 +27,7 @@ export default function MovieCard ({movie, action}) {
   const { mustWatch, addToMustWatch } =
   useContext(MoviesContext);
 
-  if (mustWatch.find((id) => id === movie.id)) {
+  if (mustWatch.find((title) => title === movie.title)) {
     movie.mustWatch = true;
   } else {
     movie.mustWatch = false
