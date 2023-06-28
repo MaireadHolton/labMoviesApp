@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useContext } from "react";
 import { getUpcomingMovies } from "../api/tmdb-api";
+import { useQuery } from "react-query";
 import UpcomingMovieList from '../components/upcomingMovieList'; 
 import Grid from "@mui/material/Grid";
 import Header from "../components/headerMovieList";
+import Spinner from "../components/spinner";
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 
 const styles = {
@@ -16,14 +18,16 @@ const styles = {
 };
 
 const UpcomingMoviesPage = (props) => {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const { data, error, isLoading, isError } = useQuery("discovery", getUpcomingMovies);
 
-  useEffect(() => {
-    getUpcomingMovies().then(upcomingMovies =>{
-      setUpcomingMovies(upcomingMovies);
-      console.log(upcomingMovies);
-    });
-  }, []);
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+  const upcomingMovies = data ? data.results : [];
 
   return (
     <Grid container sx={styles.root}>

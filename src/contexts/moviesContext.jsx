@@ -22,7 +22,8 @@ const MoviesContextProvider = (props) => {
     }
     setMustWatch(updatedMustWatch);
     console.log(mustWatch);
-  }
+  };
+
 
   const addReview = (movie, review) => {   // NEW
     setMyReviews( {...myReviews, [movie.id]: review } )
