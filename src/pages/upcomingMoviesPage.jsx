@@ -3,7 +3,7 @@ import { getUpcomingMovies } from "../api/tmdb-api";
 import UpcomingMovieList from '../components/upcomingMovieList'; 
 import Grid from "@mui/material/Grid";
 import Header from "../components/headerMovieList";
-
+import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 
 const styles = {
   root: {
@@ -25,7 +25,6 @@ const UpcomingMoviesPage = (props) => {
     });
   }, []);
 
-
   return (
     <Grid container sx={styles.root}>
         <Grid item xs={12}>
@@ -34,6 +33,9 @@ const UpcomingMoviesPage = (props) => {
         <Grid item container spacing={5}>
           <UpcomingMovieList
             upcomingMovies={upcomingMovies}
+            action={(movie) => {
+              return <AddToMustWatchIcon movie={movie} />
+            }}
           />
         </Grid>
     </Grid>
