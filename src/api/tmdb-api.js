@@ -29,7 +29,6 @@ export const getMovie = (args) => {
  });
 };
 
-  
   export const getGenres = async () => {
     return fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
@@ -89,5 +88,18 @@ export const getMovie = (args) => {
     });
 };
 
+export const getTopMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&include_adult=false&language=en-US&page=1&sort_by=vote_average.desc`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+     throw error
+  });
+};
   
   
