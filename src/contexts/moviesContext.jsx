@@ -17,8 +17,8 @@ const MoviesContextProvider = (props) => {
 
   const addToMustWatch = (movie) => {
     let updatedMustWatch = [...mustWatch];
-    if (!mustWatch.includes(movie.title)) {
-      updatedMustWatch.push(movie.title);
+    if (!mustWatch.includes(movie.id)) {
+      updatedMustWatch.push(movie.id);
     }
     setMustWatch(updatedMustWatch);
     console.log(mustWatch);
@@ -34,6 +34,10 @@ const MoviesContextProvider = (props) => {
     setFavourites(favourites.filter((mId) => mId !== movie.id));
   };
 
+  const removeFromMustWatch = (movie) => {
+    setMustWatch(mustWatch.filter((mId) => mId !== movie.id));
+  };
+
   return (
     <MoviesContext.Provider
       value={{
@@ -43,6 +47,7 @@ const MoviesContextProvider = (props) => {
         addReview,
         mustWatch,
         addToMustWatch,
+        removeFromMustWatch,
       }}
     >
       {props.children}
