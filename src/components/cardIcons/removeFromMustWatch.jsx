@@ -13,7 +13,7 @@ const RemoveFromMustWatchIcon = ({ movie }) => {
 
 return (
   <IconButton
-    aria-label="remove from favorites"
+    aria-label="remove from must watch"
     onClick={onUserRequest}
   >
     <DeleteIcon color="primary" fontSize="large" />

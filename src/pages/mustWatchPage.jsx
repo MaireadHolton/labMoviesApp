@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
-import { getMovies } from "../api/tmdb-api";
+import { getMovie } from "../api/tmdb-api";
 import Grid from "@mui/material/Grid";
 import Header from "../components/headerMovieList";
 import Spinner from "../components/spinner";
-import MovieList from "../components/MovieList";
+import MovieList from "../components/movieList";
 import RemoveFromMustWatch from "../components/cardIcons/removeFromMustWatch";
 
 const styles = {
@@ -28,11 +28,11 @@ const MustWatchMoviesPage = (props) => {
     movieIds.map((movieId) => {
       return {
         queryKey: ["movie", { id: movieId }],
-        queryFn: getMovies,
+        queryFn: getMovie,
       };
     })
   );
-  // Check if any of the parallel queries is still loading.
+
   const isLoading = mustWatchQueries.find((m) => m.isLoading === true);
 
   if (isLoading) {
