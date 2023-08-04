@@ -7,7 +7,7 @@ const TvContextProvider = (props) => {
 
     const addToFavourites = (tvShow) => {
         let updatedFavourites = [...favourites];
-        if (!setFavourites.includes(tvShow.id)) {
+        if (!favourites.includes(tvShow.id)) {
           updatedFavourites.push(tvShow.id);
         }
         setFavourites(updatedFavourites);

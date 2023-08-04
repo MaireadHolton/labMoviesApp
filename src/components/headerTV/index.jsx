@@ -33,12 +33,9 @@ const TVHeader = (props) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
       <Typography variant="h4" component="h3">
-        {tvShow.original_name}{" "}
-        <a href={tvShow.homepage}>
-          <HomeIcon color="primary"  fontSize="='large"/>
-        </a>
-        <br />
-        <span>{`${tvShow.tagline}`} </span>
+      <Typography variant="h4" component="h3">
+        {tvShow}{" "}
+      </Typography>
       </Typography>
       <IconButton aria-label="go forward">
         <ArrowForwardIcon color="primary" fontSize="large" />

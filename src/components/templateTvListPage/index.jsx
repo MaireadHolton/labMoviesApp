@@ -27,7 +27,7 @@ function TVListPageTemplate({ tvShows, title, action }) {
 
   let displayedTvShows = tvShows
     .filter((s) => {
-      return s.original_name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+      return s.name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
     })
     .filter((s) => {
       return genreId > 0 ? s.genre_ids.includes(genreId) : true;
