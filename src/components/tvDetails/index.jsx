@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 import Typography from "@mui/material/Typography";
 
-import NavigationIcon from "@mui/icons-material/Navigation";
-import Fab from "@mui/material/Fab";
-import Drawer from "@mui/material/Drawer";
-import MovieReviews from '../movieReviews'
 
 const styles = {
   chipSet: {
@@ -31,7 +26,7 @@ const styles = {
   },
 };
 
-const MovieDetails = ( {movie}) => {
+const ShowDetails = ( {tvShow}) => {
   const [drawerOpen, setDrawerOpen] = useState(false); // New
 
   return (
@@ -41,46 +36,28 @@ const MovieDetails = ( {movie}) => {
       </Typography>
 
       <Typography variant="h6" component="p">
-        {movie.overview}
+        {tvShow.overview}
       </Typography>
 
       <Paper component="ul" sx={styles.chipSet}>
         <li>
           <Chip label="Genres" sx={styles.chipLabel} color="primary" />
         </li>
-        {movie.genres.map((g) => (
+        {tvShow.genres.map((g) => (
           <li key={g.name}>
             <Chip label={g.name}  />
           </li>
         ))}
       </Paper>
       <Paper component="ul" sx={styles.chipSet}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-
-        />
+        <Chip icon={<AccessTimeIcon />} label={`${tvShow.runtime} min.`} />
         <Chip
           icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count})`}
+          label={`${tvShow.vote_average} (${tvShow.vote_count})`}
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Released: ${tvShow.first_air_date_year}`} />
       </Paper>
-      <Fab    
-        color="secondary"
-        variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        sx={styles.fab}
-      >
-        <NavigationIcon />
-        Reviews
-      </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
-      </Drawer>
     </>
   );
 };
-export default  MovieDetails ;
-
+export default  ShowDetails ;

@@ -9,7 +9,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SortIcon from '@mui/icons-material/Sort';
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-import { getGenres } from "../../api/tmdb-api";
+import { getTvGenres } from "../../api/tmdb-api";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
@@ -26,8 +26,8 @@ const styles = {
   },
 };
 
-export default function FilterMoviesCard(props) {
-  const { data, error, isLoading, isError } = useQuery("genres", getGenres);
+export default function FilterTvCard(props) {
+  const { data, error, isLoading, isError } = useQuery("genres", getTvGenres);
 
   if (isLoading) {
     return <Spinner />;
@@ -62,7 +62,7 @@ export default function FilterMoviesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <FilterAltIcon fontSize="large" />
-          Filter the movies.
+          Filter TV Shows.
         </Typography>
         <TextField
          sx={styles.formControl}
@@ -98,7 +98,7 @@ export default function FilterMoviesCard(props) {
         <CardContent>
           <Typography variant="h5" component="h1">
             <SortIcon fontSize="large" />
-            Sort the movies.
+            Sort TV shows.
           </Typography>
         </CardContent>
       </Card>

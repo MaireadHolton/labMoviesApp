@@ -10,10 +10,13 @@ import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
+import TvContextProvider from "./contexts/tvContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TopMoviesPage from './pages/topMoviesPage';
 import MustWatchPage from './pages/mustWatchPage';
 import FantasyMoviePage from './pages/fantasyMoviePage';
+import TVPage from './pages/tvPage';
+import FavouriteTvPage from './pages/favouriteTvPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +33,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
      <BrowserRouter>
        <SiteHeader />
+        <TvContextProvider>
         <MoviesContextProvider>
          <Routes>
           <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
@@ -38,13 +42,16 @@ const App = () => {
           <Route path="/movies/top" element={<TopMoviesPage/>} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<Navigate to="/" />} />
-         <Route path="/reviews/:id" element={<MovieReviewPage/>} />
-         <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-         <Route path="/movies/mustWatch" element={<MustWatchPage/>} />
-         <Route path="/fantasyMoviePage" element={<FantasyMoviePage/>} />
-        </Routes>
-      </MoviesContextProvider>
-     </BrowserRouter>
+          <Route path="/reviews/:id" element={<MovieReviewPage/>} />
+          <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
+          <Route path="/movies/mustWatch" element={<MustWatchPage/>} />
+          <Route path="/fantasyMoviePage" element={<FantasyMoviePage/>} />
+          <Route path="/tvshows" element={<TVPage/>} />
+          <Route path="/tvshows/favourites" element={<FavouriteTvPage/>} />
+         </Routes>
+       </MoviesContextProvider>
+       </TvContextProvider>
+      </BrowserRouter>
      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

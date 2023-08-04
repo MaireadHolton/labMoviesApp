@@ -15,6 +15,10 @@ const MoviesContextProvider = (props) => {
     setFavourites(updatedFavourites);
   };
 
+  const removeFromFavourites = (movie) => {
+    setFavourites(favourites.filter((mId) => mId !== movie.id));
+  };
+
   const addToMustWatch = (movie) => {
     let updatedMustWatch = [...mustWatch];
     if (!mustWatch.includes(movie.id)) {
@@ -24,13 +28,8 @@ const MoviesContextProvider = (props) => {
     console.log(mustWatch);
   };
 
-
   const addReview = (movie, review) => {   // NEW
     setMyReviews( {...myReviews, [movie.id]: review } )
-  };
-
-  const removeFromFavourites = (movie) => {
-    setFavourites(favourites.filter((mId) => mId !== movie.id));
   };
 
   const removeFromMustWatch = (movie) => {
