@@ -8,34 +8,47 @@ __Name:__ Mairead Holton
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
 + Top rated Movies Page.
-+ Must watch Movies Page
++ Must watch Movies Page.
 + Fantasy Movie page.
-+ TV Show list page (not working). 
-+ TV Show Favourites page (not working).
++ TV Show list page. 
++ TV Show Favourites page.
 
 ## Feature Design.
 
 [ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
 
-e.g. 
+#### Top rated Movies.
 
-#### Upcoming Movies.
-
-> Lists movies from the Upcoming movies endpoint of TMDB.
-
+> Lists Top rated movies from the vote average endpoint of TMDB, sorting movies from highest to lowest rated.
+![Alt text](src/images/readMe/TopRated.PNG)
 
 
-#### Movies Reviews.
+#### Must watch Movies Page.
 
-> Lists all the reviews for a particular movie (shows text extract only).
+> Allows the user to create a list of must watch movies from the top rated and upcoming movies pages.
 
-![][image2]
+![Alt text](src/images/readMe/MustWatch.PNG)
 
-> Click the 'Full Review' link of a review extract to see the review's full text. 
+#### Fantasy Movie Page.
 
-![][image3]
+> Allows the user to create a list of fantasy movies, the user can enter a title, overview, run time, production company, genre and release date for their fantasy movie using a combination of dropdown and text entry boxes.
 
-.... other features .......
+![Alt text](src/images/readMe/FantasyMoviePage.PNG)
+
+
+#### TV Show List Page.
+
+> Displays to the user a list of TV shows with posters, vote average and an option to add to favourites.
+
+![Alt text](src/images/readMe/TvShow.PNG)
+
+#### TV Show Favourites Page.
+
+> Displays the users saved favourite TV shows.
+
+![Alt text](src/images/readMe/FavouriteTvShows.PNG)
+
+
 
 ## Storybook.
 
