@@ -1,15 +1,17 @@
 
 # Full Stack Development 2 - Assignment.
 
-__Name:__ [your full name]
+__Name:__ Mairead Holton
 
 ## Features.
 
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
-+ Feature X.
-+ Feature Y. 
-+ etc.
++ Top rated Movies Page.
++ Must watch Movies Page
++ Fantasy Movie page.
++ TV Show list page (not working). 
++ TV Show Favourites page (not working).
 
 ## Feature Design.
 
@@ -21,7 +23,7 @@ e.g.
 
 > Lists movies from the Upcoming movies endpoint of TMDB.
 
-![][image1]
+
 
 #### Movies Reviews.
 
